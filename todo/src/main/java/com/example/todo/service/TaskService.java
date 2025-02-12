@@ -18,8 +18,12 @@ public class TaskService {
     }
 
     public Task addTask(Task task) {
+        if (task.getTitle() == null || task.getTitle().trim().isEmpty()) {
+            throw new IllegalArgumentException("Task title cannot be null or empty");
+        }
         return taskRepository.save(task);
     }
+
 
     public Task updateTask(Long id) {
         Optional<Task> optionalTask = taskRepository.findById(id);

@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:63342")
 @RestController
 @RequestMapping("/tasks")
 
@@ -20,9 +20,7 @@ public class TaskController {
     }
 
     @PostMapping
-//    public Task createTask(@RequestBody Task task) {
-//        return taskService.addTask(task);
-//    }
+
     public ResponseEntity<?> createTask(@RequestBody Task task) {
         if (task.getTitle() == null || task.getTitle().trim().isEmpty()) {
             return ResponseEntity.badRequest().body("Task title cannot be null or empty");
@@ -43,3 +41,6 @@ public class TaskController {
         return ResponseEntity.noContent().build();
     }
 }
+
+
+

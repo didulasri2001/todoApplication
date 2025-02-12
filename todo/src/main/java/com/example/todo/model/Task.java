@@ -17,4 +17,9 @@ public class Task {
     private String title;
 
     private boolean completed = false;
+
+  public Task(String title, boolean b) {
+  }
+
+
 }
